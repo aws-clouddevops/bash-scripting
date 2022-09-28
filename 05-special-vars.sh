@@ -4,9 +4,10 @@
 
 # $0            : This gives you the name of the script you are running
 # $1 to $9      : You can a maximum of 9 variables from command line when you are running the script
-# $*
-# $@
-# $#
+# $*            : Prints all supplied variables in script
+# $@            : Prints all supplied variables in script
+# $#            : Prints number of variables
+# $$            : Prints Process id of the script
 
 echo -e  "script name that you're running is \e[34m $0 \e[0m"
 
@@ -24,7 +25,7 @@ echo valus id d is : $d
 # sh scriptname.sh 100 200 300
 # sh scriptname.sh $1  $2  $3
 
-echo $*
-echo $@
-echo $#
-echo $$
+echo "Printing the variables that we have passed in the script $*"
+echo "Printing the variables that we have passed in the script $@"
+echo "Printing the number of variables in the script $#"
+echo "Printing the PID of the script that we are running $$"
