@@ -10,7 +10,7 @@ echo $a
 COMMENT
 
 echo "cloud Training"
-echo "Cloud DevOps Training"
+echo "DevOps Training"
 echo "Cloud DevOps Training"
 a=10
 echo $a
