@@ -16,6 +16,8 @@ echo "${b}"
 
 echo value of d is : $d
 
+DATE_COMMAND=$(date +%F)
+LOGGEDIN_USERS=$(who |wc -l)
 # when the data is not mentioned its a null value
 
 # what ever we are running on xshell it runs on heat memoty when some value is declared  on export
@@ -27,6 +29,7 @@ echo value of d is : $d
 DATE=2022-09-05 # this is call hard coding the value
 echo "Good Morning, Todays date is $DATE"
 
-DATE_COMMAND=$(date +%F)
 echo "Good Morning, Todays date is $DATE_COMMAND"
 # This is how we can fetch todays date. Never hard code gthe data
+
+echo "Number of logged in users are $LOGGEDIN_USERS"
