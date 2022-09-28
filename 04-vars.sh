@@ -24,5 +24,9 @@ echo value of d is : $d
 # local values have high priority
 # variables declared in the program have high priority than those declared on export
 
-DATE=2022-09-05
+DATE=2022-09-05 # this is call hard coding the value
 echo "Good Morning, Todays date is $DATE"
+
+DATE_COMMAND=$(date +%F)
+echo "Good Morning, Todays date is $DATE_COMMAND"
+# This is how we can fetch todays date. Never hard code gthe data
