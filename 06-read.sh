@@ -1,4 +1,5 @@
 #!/bin/bash
 
-read -p "enter your name:" name
-echo "entered name is $name"
+read -p "Enter your name:" name
+echo "Entered name is $name"
+
