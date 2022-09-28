@@ -7,3 +7,7 @@ sample() {
 }
 
 sample
+
+sample
+
+sample
