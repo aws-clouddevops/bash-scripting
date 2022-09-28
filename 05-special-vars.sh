@@ -11,7 +11,7 @@
 echo -e  "script name that you're running is \e[34m $0 \e[0m"
 
 a=10
-b=$1
+b=$1     # $1 first argument passed to the script
 c=$2
 d=$3
 
@@ -23,3 +23,8 @@ echo valus id d is : $d
 
 # sh scriptname.sh 100 200 300
 # sh scriptname.sh $1  $2  $3
+
+echo $*
+echo $@
+echo $#
+echo $$
