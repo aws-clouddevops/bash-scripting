@@ -13,3 +13,5 @@ echo ${a}
 echo "${b}"
 
 # all of them mean the same to print the value
+
+echo value of d is : $d
