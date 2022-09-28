@@ -1,12 +1,12 @@
 #!/bin/bash
 
-Here are the special variables
+# Here are the special variables
 
 # $0            : This gives you the name of the script you are running
 # $1 to $9      : You can a maximum of 9 variables from command line when you are running the script
 # $*
-$@
-$#
+# $@
+# $#
 
 echo  "script name that you're running is $0"
 
