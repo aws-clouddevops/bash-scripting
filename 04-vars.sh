@@ -9,7 +9,7 @@ b=abc
 ### No datatypes in bash scripting, Everything is a string by default
 
 echo value of a is : $a
-echo $(a)
-echo "$(b)"
+echo ${a}
+echo "${b}"
 
 # all of them mean the same to print the value
