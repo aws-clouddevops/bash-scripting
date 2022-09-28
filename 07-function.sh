@@ -5,3 +5,5 @@ sample() {
     echo "I will be printing uptime"
     uptime
 }
+
+sample
