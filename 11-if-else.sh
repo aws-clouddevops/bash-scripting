@@ -13,16 +13,19 @@ ACTION=$1 # expects value from command line
 #fi
 
 # Demo on else if
+# Linux is always case sensitive if its start need to used start not Start
+# if we want to use multiple options nees to use '-o' example [ "$ACTION" = "start" -o "$ACTION" = "Start" -o "$ACTION" = "START" ]
 
 if [ "$ACTION" = "start" ]; then
    echo "Starting ABC Service"
 
 elif [ "$ACTION" = "stop" ]; then
     echo "Stopping ABC Service"
-
+    exit 1
 elif [ "$ACTION" = "restart" ]; then
     echo "Restarting ABC Service"
-
+    exit 2
 else
    echo -e "Only valid options are \e[34m start or stop or restart only \e[0m"
+    exit 3
 fi
