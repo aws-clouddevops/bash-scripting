@@ -144,7 +144,7 @@ NOTE: If the expression is false, then it will perform the conditions in else
 
 Operators on numbers:
 ```
-    -eq , -ne , -gt, -ge, -lt, -le
+    -eq (Stands for Equal to) , -ne (Stands for Not Equal to) , -gt  (Stands for Greater Than), -ge (Stands for Greater Than or Equal to), -lt (Stands for Less than), -le (Stands for Less than or Equal to)
 
     [ 1 -eq 1 ] 
     [ 1 -ne 1 ]
