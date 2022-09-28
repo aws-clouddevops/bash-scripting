@@ -12,9 +12,14 @@ echo  "script name that you're running is $0"
 
 a=10
 b=$1
+c=$2
+d=$3
 
 echo value of a is : $a
 echo value of b is : $b
+echo valus of c is : $c
+echo valus id d is : $d
+
 
 # sh scriptname.sh 100 200 300
 # sh scriptname.sh $1  $2  $3
