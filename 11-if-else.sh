@@ -24,5 +24,5 @@ elif [ "$ACTION" = "restart" ]; then
     echo "Restarting ABC Service"
 
 else
-   echo "Only valid options are \e[34m start or stop or restart only \e[0m"
+   echo -e "Only valid options are \e[34m start or stop or restart only \e[0m"
 fi
