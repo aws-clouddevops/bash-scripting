@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# when every simgle quotes are used it kills the pow
+
 # Here are the special variables
 
 # $0            : This gives you the name of the script you are running
@@ -8,6 +10,7 @@
 # $@            : Prints all supplied variables in script
 # $#            : Prints number of variables
 # $$            : Prints Process id of the script
+# $?            : Gives you the exit code of the previous commands
 
 echo -e  "script name that you're running is \e[34m $0 \e[0m"
 
