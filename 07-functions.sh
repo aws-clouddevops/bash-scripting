@@ -11,7 +11,7 @@
 # Defining the function stat
 
 stat(){
-    echo "load average on the system from last 1 min is : $(uptime | awk -F : '{print $NF}' | awk -F , '{print $1}')"
+    echo "load average on the system from last 1 min is : $(uptime | awk -F : '{print $NF}' | awk -F , '{print $1}')" # NF prints the last value
     echo "Number of users signed in is : $(who|wc -l)" # here its who|wc -L
     echo "Stat Function is completed bye"
 
