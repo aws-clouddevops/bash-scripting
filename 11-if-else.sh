@@ -39,3 +39,4 @@ if [ -z $ACTION ]; then
     exit 1
 
 fi
+# -z, -n are used to restrict the code when invalid option is given
