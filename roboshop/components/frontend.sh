@@ -8,7 +8,7 @@ source components/common.sh
 
 echo -n "Installing Nginx:"
 
-yum install nginx -y  >>/tmp/frontend.log
+yum install nginx -y  >> /tmp/frontend.log
 systemctl enable ningx
 
 echo -n "Starting Nginx:"
