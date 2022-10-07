@@ -26,7 +26,7 @@ curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/stans-robot-project/${CO
 stat $?
 
 echo -n "Extracting the ${COMPONENT} schema: "
-cd /tmp && unzip mongodb.zip
+cd /tmp && unzip -o mongodb.zip
 stat $?
 
 echo -n "Injecting the ${COMPONENT} Schema: "
