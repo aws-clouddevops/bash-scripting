@@ -6,17 +6,32 @@ set -e # ensures your script will stop if any of the instruction fails
 
 source components/common.sh
 
-yum install nginx -y
+echo -n "Installing Nginx:"
+
+yum install nginx -y  >>/tmp/frontend.log
 systemctl enable ningx
+
+echo -n "Starting Nginx:"
 systemctl start ningx
+stat $?
+
+echo -n "Downloading the Code"
 curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
+stat $?
 
 cd /usr/share/nginx/html
 rm -rf *
-unzip /tmp/frontend.zip
+echo -n "Extracting the Zip File:"
+unzip /tmp/frontend.zip  >>/tmp/frontend.log
+stat $?
+
 mv frontend-main/* .
 mv static/* .
+echo -n "Performing Cleanup:"
 rm -rf frontend-main README.md
-mv localhost.conf /etc/nginx/default.d/roboshop.conf
+stat $?
 
+echo -n "Configuring the Reverse Proxy:"
+mv localhost.conf /etc/nginx/default.d/roboshop.conf
+stat $?
 systemctl restart nginx
