@@ -1,4 +1,4 @@
-frontend: # always a tab space is needed when we write
+frontend: # always use a tab space, it is needed when we write
 	bash components/frontend.sh
 
 catalogue:
