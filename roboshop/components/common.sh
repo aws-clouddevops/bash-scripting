@@ -1,4 +1,5 @@
 # validating if the user has root access
+
 ID=$(id -u)
 
 if [ $ID -ne 0 ]; then
