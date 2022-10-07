@@ -35,4 +35,4 @@ mongo < catalogue.js >> /tmp/${COMPONENT}.log
 mongo < users.js >> /tmp/${COMPONENT}.log
 stat $?
 
-echo -n -e ****\n \n_____${COMPONENT} Configuration Completed_____*****\n
+echo -n -e "\n \n****_____${COMPONENT} Configuration Completed_____*****\n"
