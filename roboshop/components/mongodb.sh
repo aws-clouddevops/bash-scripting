@@ -20,3 +20,19 @@ echo -n "Starting ${COMPONENT} service: "
 systemctl enable mongod >> /tmp/${COMPONENT}.log
 systemctl start mongod
 stat $?
+
+echo -n "Downloading the Schema: "
+curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip"
+stat $?
+
+echo -n "Extracting the ${COMPONENT} schema: "
+cd /tmp && unzip mongodb.zip
+stat $?
+
+echo -n "Injecting the ${COMPONENT} Schema: "
+cd mongodb-main
+mongo < catalogue.js >> /tmp/${COMPONENT}.log
+mongo < users.js >> /tmp/${COMPONENT}.log
+stat $?
+
+echo ****_____${COMPONENT} Configuration Completed_____*****
