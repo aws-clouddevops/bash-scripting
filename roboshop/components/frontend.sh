@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e # ensures your script will stop if any of the instruction fails
+
 # source is an import command , it imports the code and runs locally
 source components/common.sh
 
