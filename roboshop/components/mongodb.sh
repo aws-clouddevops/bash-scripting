@@ -9,7 +9,7 @@ curl -s -o /etc/yum.repos.d/mon${COMPONENT}.repo https://raw.githubusercontent.c
 stat $? # calling function with variable
 
 echo -n "Installing ${COMPONENT}: "
-yum install -y mongodb-org
+yum install -y mongodb-org >> /tmp/${COMPONENT}.log
 stat $?
 
 echo -n "updating the $COMPONENT config: "
@@ -17,6 +17,6 @@ sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
 stat $?
 
 echo -n "Starting ${COMPONENT} service: "
-systemctl enable mongod >>/tmp/${COMPONENT}.log
+systemctl enable mongod >> /tmp/${COMPONENT}.log
 systemctl start mongod
 stat $?
