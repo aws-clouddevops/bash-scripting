@@ -30,4 +30,5 @@ rm -rf frontend-main README.md
 echo -n "Configuring the Reverse Proxy:"
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 
+echo -n "Restarting Nginx"
 systemctl restart nginx
