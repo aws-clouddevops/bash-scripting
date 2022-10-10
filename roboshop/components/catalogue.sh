@@ -27,7 +27,7 @@ echo -n "Cleanup of old ${COMPONENT} content: "
 rm -rf /home/${FUSER}/${COMPONENT} >> /tmp/${COMPONENT}.log
 stat $?
 
-echo -n "Extracting ${COMPONENET}"
+echo -n "Extracting ${COMPONENT}"
 cd /home/{$FUSER}/  >> /tmp/${COMPONENT}.log
 unzip -o /tmp/${COMPONENET}.zip  >> /tmp/${COMPONENT}.log  &&  mv ${COMPONENT}-main ${COMPONENT}  >> /tmp/${COMPONENT}.log$ cd /home/roboshop/catalogue
 stat $?
