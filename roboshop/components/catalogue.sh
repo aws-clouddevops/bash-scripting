@@ -16,7 +16,7 @@ yum install nodejs -y  >> /tmp/${COMPONENT}.log
 stat $?
 
 echo -n "Adding ${FUSER} user: "
-useradd roboshop
+id ${FUSER} || useradd ${FUSER} # creates user only if the user does not exist
 stat $?
 
 echo -n "Downloading ${COMPONENT}: "
@@ -25,6 +25,7 @@ stat $?
 
 echo -n "Cleanup of old ${COMPONENT} content: "
 rm -rf /home/${FUSER}/${COMPONENT} >> /tmp/${COMPONENT}.log
+stat $?
 
 echo -n "Extracting ${COMPONENET}"
 cd /home/{$FUSER}/  >> /tmp/${COMPONENT}.log
