@@ -16,7 +16,7 @@ yum install nodejs -y  >> /tmp/${COMPONENT}.log
 stat $?
 
 echo -n "Adding ${FUSER} user: "
-id ${FUSER} || useradd ${FUSER} # creates user only if the user does not exist
+id ${FUSER} || useradd ${FUSER}  >> /tmp/${COMPONENT}.log # creates user only if the user does not exist
 stat $?
 
 echo -n "Downloading ${COMPONENT}: "
@@ -41,14 +41,14 @@ cd $COMPONENT && npm install  &>> /tmp/${COMPONENT}.log
 stat $?
 
 echo -n "Configuring the Systemd files: "
-sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal' /home/${FUSER}/${COMPONENT}/systemd.service
+sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/${FUSER}/${COMPONENT}/systemd.service
 mv /home/${FUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
 stat $?
 
 echo -n "Starting the service: "
 systemctl daemon-reload &>> /tmp/${COMPONENT}.log
-systemctl enable catalogue &>> /tmp/${COMPONENT}.log
-systemctl start catalogue &>> /tmp/${COMPONENT}.log
+systemctl enable ${COMPONENT} &>> /tmp/${COMPONENT}.log
+systemctl start ${COMPONENT} &>> /tmp/${COMPONENT}.log
 stat $?
 
 # $ vim systemd.servce
