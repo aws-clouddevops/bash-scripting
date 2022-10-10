@@ -8,7 +8,7 @@ COMPONENT=catalogue
 FUSER=roboshop
 
 echo -n "Confirgire yum Repos for modejs: " 
-curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+curl -sL https://rpm.nodesource.com/setup_lts.x | bash  >> /tmp/${COMPONENT}.log
 stat $?
 
 echo -n "Installing Nodejs: "
@@ -32,8 +32,11 @@ cd /home/{$FUSER}/  >> /tmp/${COMPONENT}.log
 unzip -o /tmp/${COMPONENET}.zip  >> /tmp/${COMPONENT}.log  &&  mv ${COMPONENT}-main ${COMPONENT}  >> /tmp/${COMPONENT}.log$ cd /home/roboshop/catalogue
 stat $?
 
+echo -n "Chnaging the ownership to ${FUSER}: "
+chown -R ${FUSER}:${FUSER} ${COMPONENT}/
+
 echo -n "Installing ${COMPONENT} Dependencies: "
-npm install  >> /tmp/${COMPONENT}.log
+cd ${COMPONENT} && npm install  >> /tmp/${COMPONENT}.log
 stat $?
 
 # $ vim systemd.servce
