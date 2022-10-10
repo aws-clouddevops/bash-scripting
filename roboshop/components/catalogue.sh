@@ -27,9 +27,9 @@ echo -n "Cleanup of old ${COMPONENT} content: "
 rm -rf /home/${FUSER}/${COMPONENT} >> /tmp/${COMPONENT}.log
 stat $?
 
-echo -n "Extracting ${COMPONENT}"
+echo -n "Extracting ${COMPONENT} content: "
 cd /home/{$FUSER}/  >> /tmp/${COMPONENT}.log
-unzip -o /tmp/${COMPONENET}.zip  >> /tmp/${COMPONENT}.log  &&  mv ${COMPONENT}-main ${COMPONENT}  >> /tmp/${COMPONENT}.log$ cd /home/roboshop/catalogue
+unzip -o /tmp/${COMPONENT}.zip  >> /tmp/${COMPONENT}.log  &&  mv ${COMPONENT}-main ${COMPONENT}  >> /tmp/${COMPONENT}.log$ cd /home/roboshop/catalogue
 stat $?
 
 echo -n "Chnaging the ownership to ${FUSER}: "
