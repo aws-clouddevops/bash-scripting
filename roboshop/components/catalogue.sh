@@ -7,7 +7,7 @@ source components/common.sh
 COMPONENT=catalogue
 FUSER=roboshop
 
-echo -n "Confirgire yum Repos for nodejs: " 
+echo -n "Confirgure yum Repos for nodejs: " 
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash  >> /tmp/${COMPONENT}.log
 stat $?
 
