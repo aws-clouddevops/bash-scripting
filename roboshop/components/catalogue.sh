@@ -16,7 +16,7 @@ yum install nodejs -y  >> /tmp/${COMPONENT}.log
 stat $?
 
 echo -n "Adding ${FUSER} user: "
-id ${FUSER} || useradd ${FUSER}  >> /tmp/${COMPONENT}.log # creates user only if the user does not exist
+id ${FUSER} >> /tmp/${COMPONENT}.log || useradd ${FUSER}  >> /tmp/${COMPONENT}.log # creates user only if the user does not exist
 stat $?
 
 echo -n "Downloading ${COMPONENT}: "
@@ -50,18 +50,3 @@ systemctl daemon-reload &>> /tmp/${COMPONENT}.log
 systemctl enable ${COMPONENT} &>> /tmp/${COMPONENT}.log
 systemctl start ${COMPONENT} &>> /tmp/${COMPONENT}.log
 stat $?
-
-# $ vim systemd.servce
-
-# mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
-# systemctl daemon-reload
-# systemctl start catalogue
-# systemctl enable catalogue
-# systemctl status catalogue -l
-
-# Ref Log:
-# {"level":"info","time":1656660782066,"pid":12217,"hostname":"ip-172-31-13-123.ec2.internal","msg":"MongoDB connected","v":1}
-# vim /etc/nginx/default.d/roboshop.conf
-
-# systemctl restart nginx
-
