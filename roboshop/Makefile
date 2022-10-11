@@ -11,5 +11,5 @@ mongodb:
 	bash components/mongodb.sh
 
 redis:
-	bash components/mongodb.sh
+	bash components/redis.sh
 
