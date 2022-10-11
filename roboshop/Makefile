@@ -7,9 +7,6 @@ mongodb:
 catalogue:
 	bash components/catalogue.sh
 
-mongodb:
-	bash components/mongodb.sh
-
 redis:
 	bash components/redis.sh
 
