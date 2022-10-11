@@ -18,3 +18,6 @@ echo -n "Starting ${COMPONENT}: "
 systemctl enable mysqld &>>${LOGFILE}
 systemctl start mysqld &>>${LOGFILE}
 stat $?
+
+echo -n "Fetching the default root password"
+DEFAULT_ROOT_PASSWORD=$(sudo grep temp /var/log/mysqld.log)
