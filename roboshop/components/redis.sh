@@ -7,7 +7,7 @@ source components/common.sh
 COMPONENT=redis
 
 echo -n "Configuring the ${COMPONENT} Repo: "
-curl -L https://raw.githubusercontent.com/stans-robot-project/redis/main/redis.repo -o /etc/yum.repos.d/redis.repo >> /tmp/${COMPONENT}.log
+curl -L https://raw.githubusercontent.com/stans-robot-project/redis/main/redis.repo -o /etc/yum.repos.d/redis.repo  >> /tmp/${COMPONENT}.log
 stat $?
 
 echo -n "Installing ${COMPONENT}: "
@@ -19,16 +19,6 @@ sed -i -e 's/127.0.0.1/0.0.0.0/g' /etc/redis.conf >> /tmp/${COMPONENT}.log
 stat $?
 
 echo -n "Starting $COMPONENT: "
-systemctl enable redis >> /tmp/${COMPONENT}.log
-systemctl start redis >> /tmp/${COMPONENT}.log
+systemctl enable redis >> /tmp/${COMPONENT}.log >> /tmp/${COMPONENT}.log
+systemctl start redis >> /tmp/${COMPONENT}.log >> /tmp/${COMPONENT}.log
 stat $?
-
-
-
-# vim /etc/redis.conf
-# vim /etc/redis/redis.conf
-# 127.0.0.1 to 0.0.0.0
-
-# systemctl enable redis
-# systemctl start redis
-# systemctl status redis -l
