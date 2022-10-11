@@ -16,7 +16,7 @@ stat() {
 }
 
 FUSER=roboshop
-LOGFILE-robot.log
+LOGFILE=robot.log
 
 USER_SETUP() {
 
