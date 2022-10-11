@@ -20,4 +20,9 @@ systemctl start mysqld &>>${LOGFILE}
 stat $?
 
 echo -n "Fetching the default root password"
-DEFAULT_ROOT_PASSWORD=$(sudo grep temp /var/log/mysqld.log)
+DEFAULT_ROOT_PASSWORD=$(sudo grep temp /var/log/mysqld.log | head -n 1 | awk -F " " '{print $NF}')
+stat $?
+
+echo -n "Uninstalling the password validate plugin: "
+echo 'uninstall plugin validate_password; ' > /tmp/password-validate.sql
+mysql --connect-expired-password -uroot -pRoboShop1 < /tmp/password-validate.sql 
