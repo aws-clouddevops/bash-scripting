@@ -103,3 +103,28 @@ MAVEN() {
     CONFIG_SVC
 
 }
+
+PYTHON() {
+
+   echo -n "Installing Python: "
+    yum install python36 gcc python3-devel -y &>> ${LOGFILE}
+    stat $?
+
+    USER_SETUP
+
+    DOWNLOAD_AND_EXTRACT
+
+    echo -n "Install Dependencies: "
+    cd /home/${FUSER}/${COMPONENT}/
+    pip3 install -r requirements.txt &>>${LOGFILE}
+    stat $?
+
+    USER_ID=$(id -u roboshop)
+    GROUP_ID=$(id -u roboshop)
+
+    echo -n "Updating the ${COMPONENT}.ini file: "
+    sed -i -e "/^uid/ c uid=${USER_ID}" -e "/^gid/ c gid=${GROUP_ID}" ${COMPONENT}.ini
+    stat $?
+
+    CONFIG_SVC 
+}
