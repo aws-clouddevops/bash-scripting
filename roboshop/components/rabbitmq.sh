@@ -22,7 +22,8 @@ rabbitmqctl list_users | grep roboshop &>> ${LOGFILE}
 if [ $? -ne 0 ]; then
     echo -n "Creating ${COMPONENT} Application User: "
     rabbitmqctl add_user roboshop roboshop123 &>> ${LOGFILE}
-stat $?
+    stat $?
+fi
 
 echo -n "Configuting the ${COMPONENT} ${FUSER} Permission"
 rabbitmqctl set_user_tags roboshop administrator  &&  rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>> ${LOGFILE}
