@@ -27,3 +27,5 @@ GROUP_ID=$(id -u roboshop)
 echo -n "Updating the ${COMPONENT}.ini file: "
 sed -i -e "/^uid/ c uid=${USERID}/" -e "/^gid/ c gid=${GROUPID}/" ${COMPONENT}.ini
 stat $?
+
+CONFIG_SVC
