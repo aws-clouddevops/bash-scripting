@@ -26,5 +26,5 @@ if [ $? -ne 0 ]; then
 fi
 
 echo -n "Configuting the ${COMPONENT} ${FUSER} Permission"
-rabbitmqctl set_user_tags roboshop administrator  &&  rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>> ${LOGFILE}
+rabbitmqctl set_user_tags roboshop administrator &>> ${LOGFILE} &&  rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>> ${LOGFILE}
 stat $?

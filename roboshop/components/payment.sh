@@ -1,8 +1,22 @@
 #!/bin/bash
 
-ID=$(id -u)
+set -echo
 
-if [ $ID -ne 0 ]; then
-    echo -e "\e[31m Try executing the script with a sudo access \e[0m"
-    exit 1
-fi
+source components/common.sh
+
+COMPONENT=payment
+
+# Calling Python Function
+
+echo -n "Installing Python: "
+yum install python36 gcc python3-devel -y &>> ${LOGFILE}
+stat $?
+
+USER_SETUP
+
+DOWNLOAD_AND_EXTRACT
+
+echo pn "Install Dependencies: "
+cd /home/${FUSER}/${COMPONENT}/
+pip3 install -r requirements.txt
+stat $?
