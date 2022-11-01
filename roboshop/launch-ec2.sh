@@ -20,7 +20,7 @@ AMI_ID=ami-00ff427d936335825
 echo "This is the AMI id we are using $AMI_ID"
 
 create-server() {
-    PRIVATE_IP=$(aws ec2 run-instances --image-id ${AMI_ID} --instance-type t3.micro --security-group-ids ${SGID} --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT-${ENV}}}]" --instance-market-options  "MarketType=spot, SpotOptions={SpotInstanceType=persistent,InstanceInterruptionBehavior=stop}"|jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
+    PRIVATE_IP=$(aws ec2 run-instances --image-id ${AMI_ID} --instance-type t3.micro --security-group-ids ${SGID} --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}-${ENV}}]" --instance-market-options  "MarketType=spot, SpotOptions={SpotInstanceType=persistent,InstanceInterruptionBehavior=stop}"|jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
 
     echo -e "Private Ip address of the created machine is $PRIVATE_IP"
 
